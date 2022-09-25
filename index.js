@@ -5,10 +5,9 @@ while (!max) {
 
 const genNumber = Math.floor(Math.random() * max) + 1;
 
-let guess = parseInt(
-  prompt(`I chose a number between 1 and ${max}. Can you guess what it is?`)
+let guess = prompt(
+  `I chose a number between 1 and ${max}. Can you guess what it is?`
 );
-
 let attempts = 1;
 
 while (parseInt(guess) !== genNumber) {
@@ -18,11 +17,15 @@ while (parseInt(guess) !== genNumber) {
     guess = prompt(`Too high! Guess again! Remember, between 1 and ${max}`);
   } else if (guess < genNumber) {
     guess = prompt(`Too low! Guess again! Remember, between 1 and ${max}`);
+  } else {
+    guess = prompt(
+      `${guess} is not a valid guess. Please enter a number between 1 and ${max}`
+    );
   }
 }
 if (guess == "q") {
   alert(
-    `Thanks for playing! You guessed ${attempts} times. Refresh the browser if you want to start again.`
+    `You quit! Thanks for playing! You guessed ${attempts} times. Refresh the browser if you want to start again.`
   );
 } else {
   alert(
